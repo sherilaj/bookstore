@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if books %}
+    <div style="text-align:center;font-weight:bolder;background-color: rgba(240, 240, 255, 0.609);
+    padding:15px;border-radius:10px;">Showing books of {{author.AuthorName | upper}} </div>
+    <div class="banner">
+        <div class="container image-container">
+            <div class="row">
+                {% for row in books %}
+                <div class="card">
+                <div class="col-md-3">   
+                    <a href="{% url 'bookapp:detail' row.BookId %}">
+                        <img src="{{row.BookCoverImage.url}}" alt="{{row.BookCoverImageAlternativeText}}" 
+                        style="width:280px;height:370px;">
+                    </a>
+                        
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+    {% else %}
+    <div style="text-align:center;font-weight:100;background-color: aliceblue;
+    padding:10px;border-radius:8px;">Sorry!!!No books available 
+    for {{author.AuthorName}}
+    </div>
+    {% endif %}
+</body>
+</html>
+{% endblock %}

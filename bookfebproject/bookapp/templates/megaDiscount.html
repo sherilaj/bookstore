@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="text-align: center;padding:10px;
+    background-color: aliceblue;font-weight: bold;">35% on or above discount products </div>
+<div class="row">
+    {% for row in discount %}
+    <div class="col-md-3">
+        <div class="card">
+            <a href="{% url 'bookapp:detail' row.BookId%}">
+            <img class="card-img-top" src="{{ row.BookCoverImage.url }}" alt="{{row.BookCoverImageAlternativeText}}" style="width:350px;height:500px;">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title">{{ row.Title }}</h5>
+                <p class="card-text">OfferPrice: <del>{{row.UnitPrice}}</del>{{row.OfferPrice }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</body>
+{% endblock %}
+</html>

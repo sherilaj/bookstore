@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block body %}
+<head>
+</head>
+<body>
+
+  <div class="banner">
+    <div class="banner-content">
+      <h3 style="color:bisque;">Explore more with our store !!</h3>
+      {% if user.is_authenticated %}
+      <div style="color:bisque;">Welcome {{user.username}}</div>
+      <a href="{% url 'bookapp:logout' %}" class="btn btn-info">Logout</a>
+      {% else %}
+      <a href="{% url 'bookapp:login' %}" class="btn btn-info">Login</a>
+      <a href="{% url 'bookapp:register' %}" class="btn btn-info">Register</a>
+      {% endif %}
+    </div>
+  </div>
+
+  
+<div class="container">
+  <div class="row">
+    {% for row in book|slice:":3" %}
+    <div class="card ml-3">
+        <img class="card-img-top" src="{{row.BookCoverImage.url}}" alt="{{book.BookCoverImageAlternativeText}}" 
+        style="width:280px; height:310px; margin:1.5rem;cursor: pointer;">
+        <div class="card-body">
+          <h6 class="card-title">By {{row.Authors}}</h6>
+          <a href="{% url 'bookapp:detail' row.BookId%}" class="btn btn-primary">More</a>
+        </div>
+    </div>  
+    {% endfor %}      
+  </div>
+</div>
+<br>
+
+<div class="banner2">   
+  <div class="banner-content2">
+    <h3>Explore mega discount products with our store !!</h3>
+    <a href="{% url 'bookapp:MegaDiscount' %}" class="btn btn-info">click here</a>
+  </div>
+</div>  
+
+</body>
+{% endblock %}

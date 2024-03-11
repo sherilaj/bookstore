@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<body>
+    {% if books %}
+    <div style="text-align:center;background-color: #f0f0f0; font-weight:bold;
+    padding: 10px; border-radius: 5px;">Displaying {{category.CategoryName}} based books</div>
+<div class="banner">  
+<div class="container image-container">
+    <div class="row">
+            {% for row in books %}
+                <div class="card card-category ml-3">
+                    <a href="{% url 'bookapp:detail' row.BookId%}">
+                    <img class="card-img-top" src="{{ row.BookCoverImage.url }}" alt="{{row.BookCoverImageAlternativeText}}" style="width:300px;height:400px;">
+                </a>
+                </div>
+            {% endfor %}
+            
+    </div>
+</div>
+{% else %}
+<div style="text-align: center;font-weight: bolder;background-color:#f0f0f0;
+padding: 10px;border-radius: 5px;">No books available under this genre</div>
+{% endif %}
+</div>
+</body>
+</html>
+{% endblock %} 

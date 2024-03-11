@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block body %}
+<html>
+    <div style="text-align: center;padding:10px;
+    background-color: aliceblue;font-weight: bold;">Top trending books</div>
+<body>
+<div class="banner">
+    <div class="container-fluid image-container">
+        <div class="row">
+            {% for item2 in books %}
+            <div class="card ml-3">    
+                <div class="col-md-3">
+                    <a href="{% url 'bookapp:detail' item2.BookId%}">
+                    <img src="{{item2.BookCoverImage.url}}" alt="{{item2.BookCoverImageAlternativeText}}"
+                     style="width:270x;height:330px;">
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+{% endblock %}

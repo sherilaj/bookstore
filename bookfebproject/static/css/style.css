@@ -1,0 +1,188 @@
+/* login banner*/
+.banner-1 {
+  background-image: url('../../media/book/image/Magic-School-Books.png'); /* Specify the path to your background image */
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 1000px; /* Adjust the height according to your needs */
+}
+/* index banner for login,register*/
+.banner{
+  display: flex;
+  justify-content: center; /* Horizontal centering */
+  align-items: center; /* Vertical centering */
+
+  background-image: url('../../media/book/image/Magic-School-Books.png'); /* Specify the path to your background image */
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 700px;
+}
+
+/* index banner2 for megadiscount*/
+.banner2{
+  background-image: url('../../media/category/image/sandy1.jpg'); /* Specify the path to your background image */
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 550px;
+
+  display: flex;
+  justify-content: center; /* Horizontal centering */
+  align-items: center;
+}
+.banner-book {
+  background-image: url('../../media/book/image/photo.avif'); /* Specify the path to your background image */
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 1000px; /* Adjust the height according to your needs */
+}
+
+.banner-content,.banner-content2 {
+  text-align: center;
+}
+
+.navbar .btn {
+margin-right: 10px; /* Adjust the margin as needed */
+}
+.container, .container-fluid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+  .card {
+    background-color: #f0f0f03e;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    margin-bottom: 20px;
+  }
+.card-detailpage{
+  width:300px;
+  height:470px;
+
+}
+.card-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 20px; /* Add padding to separate content from image */
+    font-weight: bold;
+    height:470px;
+    width:300px;
+   
+}
+.card-category p{
+  font-weight: bold;
+}
+
+/* for login form*/
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f1f1f107;
+
+  min-height: 100vh;
+}
+
+.login-container, .register-container, .message-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-form, .register-form, .message-form{
+  background-color:#d3540070 ;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 320px;
+  margin-top:100px;
+}
+.message-form p{
+  color: white;
+}
+.login-form h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color:white;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+.register-link,.login-link{
+  color: blue;
+  text-decoration: none;
+  font-weight: bold; /* Make the text bold */
+  font-size: 18px;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+.login-button {
+  margin-bottom: 20px; /* Add margin-bottom to create space below the button */
+}
+
+/* .row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+
+
+.author-image{
+  border-radius: 50%; /* Makes the image circular */
+  width: 80px; /* Adjust the width and height as needed */
+  height: 150px;
+}
+.radio-buttons label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.footer {
+  width: 100%; /* Make it span the entire width */
+  border-top: 1px solid #ccc; /* Add a solid border at the top */
+  padding-top: 20px; /* Add padding to separate content from the border */
+  background-color: black;
+
+}
+.footer h3,.footer p{
+  color: white;
+}
+
+/* for image card hover effect */
+.image-container img {
+  transition: transform 0.3s ease; /* Add transition effect for smooth hover */
+ 
+}
+
+.image-container:hover img {
+  transform: scale(1.1); /* Increase size on hover */
+}

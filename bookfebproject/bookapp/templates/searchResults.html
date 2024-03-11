@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+</head>
+<body>
+
+    {% if query %}
+        <p>Your search for "{{ query }}" returned {{ books.count }} result(s).</p>
+    {% else %}
+        <p>No search query entered.</p>
+    {% endif %}
+<div class="container">
+    <div class="row">
+        {% if books %}
+            {% for book in books %}
+                <div class="card">
+                        <a href="{% url 'bookapp:detail' book.BookId%}">
+                            <img src="{{book.BookCoverImage.url}}" alt="{{book.BookCoverImageAlternativeText}}" style="width:300px;height:400px;">
+                        </a>
+                            <h6 style="font-weight: bold;">{{ book.Title }} by {{book.Authors | upper}}</h6>
+                </div>
+            {% endfor %}
+        
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+    </div>
+    </div>
+    
+</body>
+</html>
+{% endblock %}

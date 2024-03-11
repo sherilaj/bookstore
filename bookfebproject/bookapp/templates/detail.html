@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card card-detailpage">
+
+                            {% csrf_token %}
+                            <img src="{{book.BookCoverImage.url}}" alt="{{book.BookCoverImageAlternativeText}}"
+                             style="width:280px;height:450px;">
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card text-center p-5 card-content">
+
+                            {% csrf_token %}
+                            <p>Title: {{book.Title}}</p>
+                            <p>Offer Price: <del>{{book.UnitPrice}}</del> {{book.OfferPrice}}</p>
+                            <p>Author: {{book.Authors}}</p>
+                            <p>Available No: {{book.Stock}}</p>
+                            {% for row in rating %}
+                            <p>Rating: {{row.Rating}}</p>
+                            {% endfor %}
+                        <a class="btn btn-primary" href="{% url 'cartapp:add_to_cart' book.BookId %}">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+
+</html>
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>View Cart</title>
+</head>
+<body>
+<h1 style="text-align: center;">My Cart</h1>
+<hr>
+<div class="container">      
+    <div class="row col-md-5" style="align-items: center;">
+    {% for item in cart_items %}
+    <div class="col-md-6">
+        <img src="{{ item.book.BookCoverImage.url }}" alt="{{ item.book.BookCoverImageAlternativeText }}"
+            style="width:120px;height:150px;">
+    </div>
+    <div class="col-md-5">
+        <h6 style="display: inline;color:blueviolet;">{{ item.book.Title }}</h6>
+        <h6>Offerprice:{{ item.book.OfferPrice }}</h6>
+        <form action="{% url 'cartapp:add_to_cart' item.book.BookId %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="add">
+            <a href="#" onclick="this.parentNode.submit();" style="text-decoration: none; color: inherit;">
+                <i class="fa-solid fa-square-plus" style="cursor: pointer;"></i>
+            </a>
+        </form>
+
+        <span>Quantity:{{ item.quantity }}</span>
+
+        <form action="{% url 'cartapp:add_to_cart' item.book.BookId %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="remove">
+            <a href="#" onclick="this.parentNode.submit();" style="text-decoration: none; color: inherit;">
+                <i class="fa-solid fa-square-minus" style="cursor: pointer;"></i>
+            </a>
+            <h6>Total:{{ item.total_price }}</h6>    
+            <h6>Stock:{{item.book.Stock}}</h6>
+        </form>
+        <hr>
+    </div>   
+    {% endfor %}
+</div>
+</div>
+{% if messages %}
+    <div>
+        {% for message in messages %}
+            <div class="alert alert-success" role="alert" style="text-align: center;">{{ message }}</div>
+        {% endfor %}
+    </div>
+    <meta http-equiv="refresh" content="1;url={% url 'cartapp:cartview' %}">
+{% endif %}
+
+    <!-- <table border="1">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Offer Price</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart_items %}
+            <tr>
+                <td>{{ i.book.Title }}</td>
+                <td>{{ i.book.OfferPrice }}</td>
+                <td>{{ i.quantity }}</td>
+                <td>{{ i.total_price}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4"><strong>Total:</strong></td>
+                <td>{{ total_price }}</td>
+            </tr>
+        </tfoot>
+    </table> -->
+</body>
+</html>
+{% endblock %}

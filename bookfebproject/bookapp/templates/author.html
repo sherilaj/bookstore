@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            {% for row in author %}
+            <div class="col-sm-4">
+                <div>
+                    <img src="{{row.AuthorImage.url}}" alt="bokkalt" class="author-image" style="width:220px;height:250px;">
+                </div>
+                <div style="text-align: center;text-transform: uppercase;">{{row.AuthorName}}</div>
+                <a class="btn btn-light" href="{% url 'bookapp:booksByAuthor' row.AuthorId %}" style="display:block;margin:0 auto;">View Books</a>
+                <hr>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

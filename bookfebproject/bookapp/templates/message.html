@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block body %}
+<html>
+    <head>
+        <script>
+            function showMessage(){
+                alert("Thank you for your message!");
+            }
+        </script>
+    </head>
+</html>
+    <div class=" banner-1">
+        <div class="message-container">
+            <form method="post" enctype="multipart/form-data" class="message-form" onsubmit="showMessage()">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Submit</button>
+            </form>
+            </div>
+        </div>
+        
+    </div>
+    {% endblock %} 

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block body %}
+<html>
+    <head>
+    </head>
+    <body>
+        <!-- <div class="banner-book"> -->
+            <div class="card-container image-container">
+                <div class="row">
+                    {% for row in book %}
+                    <div class="col-md-3">
+                        <div class="card" style="margin:0.5rem;">    
+                            <a href="{% url 'bookapp:detail' row.BookId %}">
+                            <img src="{{row.BookCoverImage.url}}" alt="{{row.BookCoverImageAlternativeText}}" style="width:330px;height:500px;">
+                        </a> 
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        <!-- </div> -->
+        
+    </body>
+</html>
+{% endblock %}
